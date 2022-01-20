@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  administration_db:
+    image: postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+    
+  awezomestore_administration_ms:
+    image: ${DOCKER_REGISTRY-}awezomestoreadministrationms
+    build:
+      context: .
+      dockerfile: awezomestore_administration_ms/Dockerfile
+
+volumes:
+  postgres_data:
+  pgadmin_data:
